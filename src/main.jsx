@@ -8,7 +8,7 @@ import { ProfileProvider } from './context/profileContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter  basename='/portfolio'>
        <AuthProvider>
         <ProfileProvider>
           <App />
