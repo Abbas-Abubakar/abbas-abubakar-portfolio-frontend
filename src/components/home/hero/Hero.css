@@ -1,0 +1,147 @@
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+/* Dot Grid Background */
+.dot-grid {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.dot-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.dot {
+  width: 6px; /* Increased from 4px */
+  height: 6px; /* Increased from 4px */
+  background-color: var(--primary); /* Use primary color instead of gray */
+  border-radius: 50%;
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+}
+
+.hero-text {
+  max-width: 800px;
+}
+
+/* Main Heading */
+.hero-heading {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.blue-dot {
+  color: var(--primary);
+  display: inline-block;
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--gray-400);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.primary-text {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Bio */
+.hero-bio {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--gray-400);
+  margin-bottom: 3rem;
+  max-width: 650px;
+}
+
+/* CTA */
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 90vh;
+    padding: 4rem 0;
+  }
+
+  .dot-grid {
+    opacity: 0.2;
+    right: -50px;
+  }
+
+  .dot-row {
+    gap: 1rem;
+  }
+
+  .dot {
+    width: 3px;
+    height: 3px;
+  }
+
+  .hero-heading {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .hero-bio {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-heading {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+}

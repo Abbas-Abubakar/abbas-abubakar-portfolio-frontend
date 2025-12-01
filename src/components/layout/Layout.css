@@ -1,0 +1,54 @@
+/* Main Layout Container */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main Content Area */
+.main-content {
+  margin-top: 60px; /* Height of top bar */
+  margin-left: 80px; /* Width of vertical navbar */
+  min-height: calc(100vh - 60px);
+  width: calc(100% - 80px);
+}
+
+/* Sections take full width */
+.main-content section {
+  width: 100%;
+}
+
+/* Container inside sections is centered and constrained */
+.container-custom {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 80px; /* Keep vertical nav */
+    width: calc(100% - 80px);
+  }
+  
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    margin-left: 60px; /* Smaller vertical nav on very small screens */
+    width: calc(100% - 60px);
+  }
+  
+  .container-custom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
