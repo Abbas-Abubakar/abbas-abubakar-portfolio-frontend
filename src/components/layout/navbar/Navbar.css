@@ -21,7 +21,7 @@
 
 .logo {
   color: var(--gray-400);
-  font-size: var(--text-2xl);
+  font-size: clamp(--text-base, 3vh, --text-2xl);
 }
 
 /* Social Links in Top Bar */
@@ -99,3 +99,12 @@
   transform: scaleY(1);
 }
 
+@media screen and (max-width: 480px) {
+  .navbar-vertical {
+    width: 40px;
+  }
+
+  .social-bar {
+    display: none;
+  }
+}

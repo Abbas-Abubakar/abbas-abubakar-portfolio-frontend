@@ -10,22 +10,16 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { profile } = useProfile()
 
-  const handleDownload = async () => {
-  try {
-    const response = await fetch(profile?.resumeUrl);
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "Abbas_Resume.pdf"; // desired filename
+  const responsiveSize = window.innerWidth <= 640
+
+  const handleDownload =  () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Abbas_Abubakar_resume.pdf';
     document.body.appendChild(link);
     link.click();
-    link.remove();
-    window.URL.revokeObjectURL(url);
-  } catch (error) {
-    console.error("Download failed:", error);
-  }
-};
+    document.body.removeChild(link);
+  };
 
 
   const navLinks = [
@@ -63,10 +57,8 @@ const Navbar = () => {
           ))}
         </div>
         </div>
-        <Button>
-          <a href={profile?.resumeUrl} download="Abbas_Resume.pdf">
+        <Button onClick={handleDownload} size={responsiveSize && 'sm'}>
             Resume
-          </a>
         </Button>
       </div>
 

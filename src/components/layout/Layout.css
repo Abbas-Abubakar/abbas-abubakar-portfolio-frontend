@@ -43,8 +43,8 @@
 
 @media (max-width: 480px) {
   .main-content {
-    margin-left: 60px; /* Smaller vertical nav on very small screens */
-    width: calc(100% - 60px);
+    margin-left: 40px; /* Smaller vertical nav on very small screens */
+    width: calc(100% - 40px);
   }
   
   .container-custom {
