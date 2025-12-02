@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { slideLeft, slideRight, fadeIn } from '../../../utils/animations';
 import useProfile from '../../../hooks/useProfile';
@@ -6,9 +6,14 @@ import Button from '../../common/button/Button';
 import Loader from '../../common/loader/Loader';
 import { FaDownload, FaCode, FaLaptopCode, FaUsers } from 'react-icons/fa';
 import './About.css';
+import ResumePreviewModal from '../resume-preview-modal/RessumePreviewModal';
 
 const AboutSection = () => {
   const { profile, loading } = useProfile();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   if (loading) {
     return (
@@ -71,8 +76,7 @@ const AboutSection = () => {
               <div className="profile-image-wrapper">
                 <img
                   src={
-                    profile?.profileImage ||
-                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop'
+                    profile?.profileImage
                   }
                   alt={profile?.fullName || 'Profile'}
                   className="profile-image"
@@ -170,14 +174,9 @@ const AboutSection = () => {
               className="about-actions"
             >
               {profile?.resumeUrl && (
-                <a
-                  href={profile.resumeUrl}
-                  download
-                  className="btn-download-cv"
-                >
-                  <FaDownload />
-                  Download CV
-                </a>
+                <Button onClick={openModal}>
+                  View CV
+                </Button>
               )}
               <button
                 onClick={() => {
@@ -207,6 +206,8 @@ const AboutSection = () => {
           </motion.div>
         </div>
       </div>
+
+      <ResumePreviewModal isOpen={isModalOpen} onClose={closeModal}/>
     </section>
   );
 };

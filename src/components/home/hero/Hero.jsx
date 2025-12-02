@@ -69,7 +69,7 @@ const Hero = () => {
   }
 
   return (
-    <section id="about" className="hero-section">
+    <section className="hero-section">
       {/* Animated Dot Grid Background */}
       <DotGrid />
 

@@ -5,6 +5,7 @@ import './Button.css';
 const Button = ({
   children,
   variant = 'primary',
+  size = 'md',     
   onClick,
   type = 'button',
   disabled = false,
@@ -15,7 +16,7 @@ const Button = ({
     <motion.button
       whileHover={{ scale: disabled ? 1 : 1.05 }}
       whileTap={{ scale: disabled ? 1 : 0.95 }}
-      className={`btn btn-${variant} ${className}`}
+      className={`btn btn-${variant} btn-${size} ${className}`}
       onClick={onClick}
       type={type}
       disabled={disabled}
