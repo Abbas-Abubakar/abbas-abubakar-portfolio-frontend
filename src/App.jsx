@@ -9,7 +9,7 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 
 function App() {
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait"> 
       <Routes>
   
         <Route path="/" element={<Layout />}>
